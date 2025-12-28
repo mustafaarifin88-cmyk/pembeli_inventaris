@@ -5,7 +5,11 @@ class M_peminjaman extends CI_Model {
 
     public function get_all()
     {
-        return $this->db->get('tb_peminjaman')->result();
+        $this->db->select('tb_peminjaman.*, tb_barang.nama_barang');
+        $this->db->from('tb_peminjaman');
+        $this->db->join('tb_barang', 'tb_barang.id_barang = tb_peminjaman.id_barang');
+        $this->db->order_by('id_pinjam', 'DESC');
+        return $this->db->get()->result();
     }
 
     public function insert($data)

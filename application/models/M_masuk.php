@@ -5,7 +5,12 @@ class M_masuk extends CI_Model {
 
     public function get_all()
     {
-        return $this->db->get('tb_barang_masuk')->result();
+        $this->db->select('tb_barang_masuk.*, tb_barang.nama_barang, tb_suplier.nama_suplier');
+        $this->db->from('tb_barang_masuk');
+        $this->db->join('tb_barang', 'tb_barang.id_barang = tb_barang_masuk.id_barang');
+        $this->db->join('tb_suplier', 'tb_suplier.id_suplier = tb_barang_masuk.id_suplier');
+        $this->db->order_by('id_masuk', 'DESC');
+        return $this->db->get()->result();
     }
 
     public function insert($data)

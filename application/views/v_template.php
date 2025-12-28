@@ -17,7 +17,6 @@
     <style>
         /* === BACKGROUND ANIMASI RADIASI === */
         body {
-            /* Kombinasi warna Deep Ocean & Neon Purple */
             background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1CB5E0, #000046);
             background-size: 400% 400%;
             animation: radiationBG 15s ease infinite;
@@ -114,7 +113,7 @@
 
         /* === MODERN CARDS === */
         .card {
-            background: rgba(255, 255, 255, 0.95); /* Sedikit transparan agar konten terbaca */
+            background: rgba(255, 255, 255, 0.95);
             border: none;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
@@ -141,7 +140,7 @@
         }
 
         .text-gray-800 {
-            color: #333 !important; /* Agar teks di dalam card tetap terbaca */
+            color: #333 !important;
         }
         
         .breadcrumb {
@@ -159,13 +158,13 @@
 
     <div id="wrapper">
 
-        <!-- Sidebar dengan Glassmorphism -->
+        <!-- Sidebar -->
         <ul class="navbar-nav sidebar accordion" id="accordionSidebar">
 
-            <!-- BAGIAN FOTO PROFIL ADMIN (BARU) -->
+            <!-- BAGIAN FOTO PROFIL ADMIN (KEMBALI KE STATIC) -->
             <li class="nav-item">
                 <div class="admin-profile-section">
-                    <!-- Pastikan file foto.jpg ada di folder assets -->
+                    <!-- Pastikan file foto.jpg ada di folder assets atau ganti nama filenya -->
                     <img src="<?= base_url('assets/foto.jpg'); ?>" 
                          class="admin-profile-img" 
                          alt="Admin Photo"
@@ -203,11 +202,6 @@
                     <span>Data Suplier</span></a>
             </li>
 
-            <li class="nav-item <?= $this->uri->segment(1) == 'pengguna' ? 'active' : '' ?>">
-                <a class="nav-link" href="<?= base_url('pengguna') ?>">
-                    <i class="fas fa-fw fa-user-shield"></i>
-                    <span>Data Pengguna</span></a>
-            </li>
 
             <hr class="sidebar-divider">
 
@@ -245,14 +239,13 @@
 
             <div id="content">
 
-                <!-- Topbar Transparent -->
+                <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top">
 
                     <button id="sidebarToggleTop" class="btn btn-light d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Title (Optional) -->
                     <div class="d-none d-sm-block ml-3">
                         <h5 class="m-0 font-weight-bold text-white">Sistem Inventaris StokKita</h5>
                     </div>
@@ -262,6 +255,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <!-- KEMBALI KE STATIC -->
                                 <span class="mr-2 d-none d-lg-inline text-white small font-weight-bold">Halo, Admin</span>
                                 <img class="img-profile rounded-circle border-white border"
                                     src="<?= base_url('assets/foto.jpg') ?>" onerror="this.src='<?= base_url('assets/img/profil.jpg') ?>'">
@@ -273,6 +267,7 @@
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
+                                <!-- Link Logout hanya formalitas karena tidak ada sesi -->
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -336,5 +331,4 @@
     <script src="<?= base_url('assets/vendor/chart.js/Chart.min.js'); ?>"></script>
 
 </body>
-
 </html>
